@@ -1,13 +1,12 @@
 container = document.querySelector(".container");
 
-grid_number = prompt("How many grids?", 16);
-grid_number = +grid_number;
-container.style.width = 40 * grid_number;
+let width = 960 / 4
 
-for (let i = 0; i < 16*16; i++) {
+for (let i = 0; i < 4**2; i++) {
     grid_element = document.createElement("div");
-    grid_element.style.backgroundColor = "black";
-    grid_element.style.width = "40px";
-    grid_element.style.height = "40px";
+    grid_element.style.backgroundColor = "white";
+    grid_element.style.width = width;
+    grid_element.style.height = width;
+    grid_element.style.flex = "auto";
     container.appendChild(grid_element);
 }

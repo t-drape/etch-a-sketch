@@ -1,5 +1,14 @@
+body {
+    display: flex;
+
+    background-color: grey;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     display: flex;
-    width: 640;
+    width: 960px;
+    height: auto;
     flex-wrap: wrap;
 }
