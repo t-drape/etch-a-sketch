@@ -8,19 +8,28 @@ function getColor() {
 
 }
 
+let delete_bool = false;
+
 const opacity_value = .10;
 container.onmouseover = (e) => {
-    if (e.target.style.backgroundColor == "") {
-        e.target.style.backgroundColor = getColor();
-    }
-    if (e.target.style.opacity < 1) {
-        e.target.style.opacity = +(e.target.style.opacity) + opacity_value;
+    if (delete_bool === true) {
+        e.target.style.backgroundColor = "";
+        e.target.style.opacity = 0;
+    } else {
+        if (e.target.style.backgroundColor == "") {
+            e.target.style.backgroundColor = getColor();
+        }
+        if (e.target.style.opacity < 1) {
+            e.target.style.opacity = +(e.target.style.opacity) + opacity_value;
+        }
     }
 }
 
-const button = document.querySelector("button");
+const start_button = document.querySelector(".start_button");
 
-button.addEventListener("click", () => {
+start_button.addEventListener("click", () => {
+    draw_button.style.visibility = "visible";
+    delete_button.style.visibility = "visible";
     if (container.hasChildNodes()) {
         while(container.firstChild) {
             container.removeChild(container.firstChild);
@@ -32,7 +41,7 @@ button.addEventListener("click", () => {
     }
 
     number = +number;
-    let width = 960 / number
+    let width = 480 / number
 
     for (let i = 0; i < number**2; i++) {
         grid_element = document.createElement("div");
@@ -41,6 +50,21 @@ button.addEventListener("click", () => {
         grid_element.style.flex = "auto";
         container.appendChild(grid_element);
     }
+    console.log(container.childElementCount);
 
 });
+
+const delete_button = document.querySelector(".delete_button");
+delete_button.style.visibility = "hidden";
+
+delete_button.addEventListener("click", () => {
+    delete_bool = true;
+})
+
+const draw_button = document.querySelector(".draw_button");
+draw_button.style.visibility = "hidden";
+
+draw_button.addEventListener("click", () => {
+    delete_bool = false;
+})
 

@@ -11,7 +11,7 @@ body {
 .container {
     background-color: white;
     display: flex;
-    width: 960px;
+    width: 480px;
     height: auto;
     flex-wrap: wrap;
 }
