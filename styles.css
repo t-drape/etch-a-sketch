@@ -9,6 +9,7 @@ body {
 }
 
 .container {
+    background-color: white;
     display: flex;
     width: 960px;
     height: auto;
